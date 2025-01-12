@@ -15,8 +15,8 @@ class MLP:
         self.labels = None # text for the labels [input-list, output-list]
         
         self.size = 0
-        self.W = [] # list of numpy matrices
-        self.b = [] # list of numpy vectors
+        self.W: list[np.ndarray] = [] # list of numpy matrices
+        self.b: list[np.ndarray] = [] # list of numpy vectors
         for i in range(len(layers)-1):
             w = np.random.rand(layers[i],layers[i+1])-0.5
             b = np.random.rand(layers[i+1])-0.5
@@ -52,7 +52,7 @@ class MLP:
         '''
         if len(chromosome) != self.size:
             print(self.size)
-            raise ValueError("Chromosome legnth doesn't match architecture")
+            raise ValueError("Chromosome length doesn't match architecture")
         self.W = []
         self.b = []
         pos = 0
