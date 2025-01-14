@@ -8,9 +8,9 @@ from MLP import MLP
 
 class AG_Lunar_Lander():
 
-    def __init__(self, population_size: int, num_ind_exp: int, env: TimeLimit, env_seed: int = None):
+    def __init__(self, population_size: int, num_ind_exp: int, MLP: MLP, env: TimeLimit, env_seed: int = None):
         """Create the population"""
-        self.MLP = MLP([8,6,4])
+        self.MLP = MLP
         self.env = env
         self.env_seed = env_seed
         self.population_size = population_size
@@ -19,7 +19,7 @@ class AG_Lunar_Lander():
         self.max_fitnesses = []
         self.min_fitnesses = []
         self.mean_fitnesses = []
-        self.best_global_individual = (0, [])
+        self.best_global_individual = (-9999, [])
         # ---------Create the population--------- #
         self.population = [[random.uniform(-1,1) for _ in range(self.chromosome_length)] for _ in range(population_size)] # list of lists, each sublist is an individual
         self.fitnesses = []
