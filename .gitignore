@@ -1,2 +1,4 @@
-.venv
 __pycache__
+.venv_torch
+.venv_tensorflow
+results_p2/training-checkpoints
