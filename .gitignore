@@ -1,4 +1,4 @@
 __pycache__
 .venv_torch
-.venv_tensorflow
-results_p2/training-checkpoints
+results_p2/*
+!results_p2/image_grid.png
