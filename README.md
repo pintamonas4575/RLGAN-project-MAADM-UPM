@@ -50,9 +50,9 @@ Folder where all the created subfiles for the GAN task are stored (ignored becau
 * Test images colorization plot from the GAN.
 
 # ⚖️ License
-From Lunar Lander to colonizing Mars.
+From Lunar Lander to colonizing Mars (SpaceX hire us).
 
-From GAN colorization to paint better than Picasso (I wish).
+From GAN colorization to paint better than Picasso (We wish).
 
 # 👥 Authors
 
