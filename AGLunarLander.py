@@ -2,8 +2,6 @@ from gymnasium.wrappers.common import TimeLimit
 import random
 import numpy as np
 import copy
-import multiprocessing
-import concurrent.futures
 
 from loky import get_reusable_executor
 
@@ -55,22 +53,8 @@ class AG_Lunar_Lander():
         return reward/self.num_ind_exp
     # ---------------------------Fitness--------------------------- #
     def sort_pop(self, reverse_sort: bool) -> list[float]:
-        # Paralelizar la evaluación de la población
-        # with concurrent.futures.ThreadPoolExecutor(max_workers=multiprocessing.cpu_count()-2) as executor:
-            # fitness_scores = list(executor.map(self.fitness_lunar_lander, self.population))
-
-        # with concurrent.futures.ProcessPoolExecutor(max_workers=multiprocessing.cpu_count()-2) as executor:
-            # fitness_scores = list(executor.map(self.fitness_lunar_lander, self.population))
-
-        # with multiprocessing.Pool(processes=multiprocessing.cpu_count()-2) as pool: # 16 CPU cores
-            # fitness_scores = pool.map(self.fitness_lunar_lander, self.population) # la de antes
-
-        # lista = sorted(zip(self.population, fitness_scores), key=lambda x: x[1], reverse=reverse_sort)
-        # self.population = [x[0] for x in lista]
-        # self.fitnesses = [x[1] for x in lista]
         executor = get_reusable_executor()
         fitness_list=executor.map(self.fitness_lunar_lander,self.population)
-        # fitness_list = [self.fitness_lunar_lander(ind) for ind in self.population]
         lista = sorted(zip(self.population, fitness_list), key=lambda x: x[1], reverse=reverse_sort)
         self.population, self.fitnesses = executor.map(list, zip(*lista))
     
@@ -79,17 +63,6 @@ class AG_Lunar_Lander():
         choices=random.sample(copy.copy(self.population), k=T)
         indices=[self.population.index(c) for c in choices]
         return self.population[np.argmin(indices)]
-    
-    # def crossover22(self, parent1: list, parent2: list, pcross: float) -> tuple[list, list]:
-    #     """One point crossover. Return two children"""
-    #     if random.random() < pcross:
-    #         crossover_point = random.randint(1, self.chromosome_length - 1)
-    #         child1 = parent1[:crossover_point] + parent2[crossover_point:]
-    #         child2 = parent2[:crossover_point] + parent1[crossover_point:]
-    #     else:
-    #         child1, child2 = parent1[:], parent2[:]
-
-    #     return child1, child2
     
     def crossover(self, parent1: list, parent2: list, pcross: float) -> tuple[list, list]:
         """BLX-alpha crossover. Return two children"""
@@ -116,12 +89,12 @@ class AG_Lunar_Lander():
 
     def mutate(self, individual: list, pmut: float) -> list:
         """Mutate an individual, swap elements. Return mutated individual"""
-        # def mutate_swap(individual: list, pmut: float) -> list:
-        #     """ Mutación por intercambio """
-        #     if random.random() < pmut:
-        #         index1, index2 = random.choices(range(len(individual)), k=2)
-        #         individual[index1], individual[index2] = individual[index2], individual[index1]
-        #     return individual
+        def mutate_swap(individual: list, pmut: float) -> list:
+            """ Mutación por intercambio """
+            if random.random() < pmut:
+                index1, index2 = random.choices(range(len(individual)), k=2)
+                individual[index1], individual[index2] = individual[index2], individual[index1]
+            return individual
 
         def mutate_gaussian(individual: list, pmut: float) -> list:
             """ Mutación gaussiana """
@@ -129,17 +102,17 @@ class AG_Lunar_Lander():
                 individual = [gen + random.uniform(-1, 1) for gen in individual]
             return individual
 
-        # def mutate_random(individual: list, pmut: float) -> list:
-        #     """ Mutación aleatoria """
-        #     if random.random() < pmut:
-        #         index1, index2 = random.choices(range(len(individual)), k=2)
-        #         individual[index1] = random.uniform(-1,1)
-        #         individual[index2] = random.uniform(-1,1)
-        #     return individual
+        def mutate_random(individual: list, pmut: float) -> list:
+            """ Mutación aleatoria """
+            if random.random() < pmut:
+                index1, index2 = random.choices(range(len(individual)), k=2)
+                individual[index1] = random.uniform(-1,1)
+                individual[index2] = random.uniform(-1,1)
+            return individual
         
-        # mutations = [mutate_swap, mutate_gaussian, mutate_random]
-        # operator = random.choice(mutations)
-        return mutate_gaussian(individual, pmut)
+        mutations = [mutate_swap, mutate_gaussian, mutate_random]
+        operator = random.choice(mutations)
+        return operator(individual, pmut)
 
     def evolve(self, pmut=0.1, pcross=0.7, ngen=100, T=6, trace=50, reverse_sort=False, elitism=False) -> None:
         """Evolution procedure. Initial population already created"""
@@ -167,7 +140,3 @@ class AG_Lunar_Lander():
                 new_pop.append(mutated2)
                 
             self.population = [*new_pop] # make a copy
-
-            # if i % trace == 0 or i == ngen-1: # en la última gen se ordena
-                # self.sort_pop(reverse_sort)
-                # print(f"Nº gen: {i}, Best fitness: {self.fitnesses[0]}")
