@@ -1,4 +1,5 @@
 __pycache__
-.venv_torch
+.venv
 results_p2/*
 !results_p2/*.png
+.gitignore

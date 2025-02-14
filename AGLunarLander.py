@@ -5,6 +5,9 @@ import copy
 import multiprocessing
 import concurrent.futures
 
+from loky import get_reusable_executor
+
+
 from MLP import MLP
 
 class AG_Lunar_Lander():
@@ -65,10 +68,11 @@ class AG_Lunar_Lander():
         # lista = sorted(zip(self.population, fitness_scores), key=lambda x: x[1], reverse=reverse_sort)
         # self.population = [x[0] for x in lista]
         # self.fitnesses = [x[1] for x in lista]
-
-        fitness_list = [self.fitness_lunar_lander(ind) for ind in self.population]
+        executor = get_reusable_executor()
+        fitness_list=executor.map(self.fitness_lunar_lander,self.population)
+        # fitness_list = [self.fitness_lunar_lander(ind) for ind in self.population]
         lista = sorted(zip(self.population, fitness_list), key=lambda x: x[1], reverse=reverse_sort)
-        self.population, self.fitnesses = map(list, zip(*lista))
+        self.population, self.fitnesses = executor.map(list, zip(*lista))
     
     def select(self, T: int) -> list[list]:
         """Return a copy of an indivudual by tournament selection. Population already ordered by fitness"""
@@ -112,12 +116,12 @@ class AG_Lunar_Lander():
 
     def mutate(self, individual: list, pmut: float) -> list:
         """Mutate an individual, swap elements. Return mutated individual"""
-        def mutate_swap(individual: list, pmut: float) -> list:
-            """ Mutación por intercambio """
-            if random.random() < pmut:
-                index1, index2 = random.choices(range(len(individual)), k=2)
-                individual[index1], individual[index2] = individual[index2], individual[index1]
-            return individual
+        # def mutate_swap(individual: list, pmut: float) -> list:
+        #     """ Mutación por intercambio """
+        #     if random.random() < pmut:
+        #         index1, index2 = random.choices(range(len(individual)), k=2)
+        #         individual[index1], individual[index2] = individual[index2], individual[index1]
+        #     return individual
 
         def mutate_gaussian(individual: list, pmut: float) -> list:
             """ Mutación gaussiana """
@@ -125,17 +129,17 @@ class AG_Lunar_Lander():
                 individual = [gen + random.uniform(-1, 1) for gen in individual]
             return individual
 
-        def mutate_random(individual: list, pmut: float) -> list:
-            """ Mutación aleatoria """
-            if random.random() < pmut:
-                index1, index2 = random.choices(range(len(individual)), k=2)
-                individual[index1] = random.uniform(-1,1)
-                individual[index2] = random.uniform(-1,1)
-            return individual
+        # def mutate_random(individual: list, pmut: float) -> list:
+        #     """ Mutación aleatoria """
+        #     if random.random() < pmut:
+        #         index1, index2 = random.choices(range(len(individual)), k=2)
+        #         individual[index1] = random.uniform(-1,1)
+        #         individual[index2] = random.uniform(-1,1)
+        #     return individual
         
-        mutations = [mutate_swap, mutate_gaussian, mutate_random]
-        operator = random.choice(mutations)
-        return operator(individual, pmut)
+        # mutations = [mutate_swap, mutate_gaussian, mutate_random]
+        # operator = random.choice(mutations)
+        return mutate_gaussian(individual, pmut)
 
     def evolve(self, pmut=0.1, pcross=0.7, ngen=100, T=6, trace=50, reverse_sort=False, elitism=False) -> None:
         """Evolution procedure. Initial population already created"""
