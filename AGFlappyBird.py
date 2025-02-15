@@ -2,11 +2,12 @@ from gymnasium.wrappers.common import TimeLimit
 import random
 import numpy as np
 import copy
+import time
 from loky import get_reusable_executor
 
 from MLP import MLP
 
-class AG_Lunar_Lander():
+class AG_Flappy_Bird():
 
     def __init__(self, population_size: int, num_ind_exp: int, MLP: MLP, env: TimeLimit, env_seed: int = None):
         """Create the population"""
@@ -21,13 +22,13 @@ class AG_Lunar_Lander():
         self.mean_fitnesses = []
         self.best_global_individual = (-9999, [])
         # ---------Create the population--------- #
-        self.population = np.random.uniform(-5, 5, size=(population_size, self.chromosome_length)).tolist()
+        self.population = np.random.uniform(-1, 1, size=(population_size, self.chromosome_length)).tolist()
         self.fitnesses = []
     # ---------------------------Fitness--------------------------- #
-    def fitness_lunar_lander(self, chromosome: list) -> float:
+    def fitness_flappy_bird(self, chromosome: list) -> float:
         """Evalua un cromosoma"""
         def policy(observation) -> int:
-            epsilon = 0.10
+            epsilon = 0.05
             s = self.MLP.forward(observation)
             if np.random.rand() < epsilon:
                 action = np.random.randint(len(s))
@@ -52,7 +53,7 @@ class AG_Lunar_Lander():
     # ---------------------------Fitness--------------------------- #
     def sort_pop(self, reverse_sort: bool) -> list[float]:
         executor = get_reusable_executor()
-        fitness_list=executor.map(self.fitness_lunar_lander, self.population)
+        fitness_list=executor.map(self.fitness_flappy_bird, self.population)
         lista = sorted(zip(self.population, fitness_list), key=lambda x: x[1], reverse=reverse_sort)
         self.population, self.fitnesses = executor.map(list, zip(*lista))
     

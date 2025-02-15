@@ -56,6 +56,8 @@ From GAN colorization to paint better than Picasso (We wish).
 
 # 👥 Authors
 
-* Alejandro Mendoza [pintamonas4575](https://github.com/pintamonas4575)
+* Alejandro Mendoza [@pintamonas4575](https://github.com/pintamonas4575)
+* Jaime Álvarez     [@JaimeAlvarez434](https://github.com/JaimeAlvarez434)
+* Álvaro Fraile     [@alvarofraile](https://github.com/alvarofraile)
 
 
