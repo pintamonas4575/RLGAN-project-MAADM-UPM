@@ -3,4 +3,3 @@ __pycache__
 .venv_torch
 results_p2/*
 !results_p2/*.png
-.gitignore
