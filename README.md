@@ -31,23 +31,77 @@ Notebook for the first practical task, the lunar lander with reinforcement learn
 The chromosomes are a MLP (class in file *MLP.py*) total weights and biases converted to lists. The Genetic Algorithm
 process is in the file *AGLunarLander.py*.
 
-# 📓 Notebook *RLGAN-p1-MLP.ipynb*
-Notebook as a variant of the previous solution using a MLP in Pytorch, optimizing the process with NVIDIA GPU.
+# 📓 Notebook *RLGAN-p1-DQN.ipynb*
+Notebook as a variant of the previous solution using a DQN in Pytorch.
+
+# 📓 Rest of notebooks *RLGAN-p1*
+* *RLGAN-p1-PPO.ipynb*: Variation of the Lunar Lander done with a PPO (**P**roximal **P**olicy **O**ptimization) agent from stable-baselines3 library.
+* *RLGAN-p1-FB-AG.ipynb*: Playing Flappy Bird game with the same genetic algorithm mechanic.
+* *RLGAN-p1-FB-PPO.ipynb*: Variation of the Flappy Bird game done with the PPO agent from stable-baselines3.
 
 # 📓 Notebook *RLGAN-p2-GAN.ipynb*
-Notebook where a GAN is created and trained in Tensorflow to color images from CIFAR-10 dataset. 
+Training a GAN to color images from CIFAR10 dataset.
+
+# 📓 Notebook *RLGAN-p2-DCGAN.ipynb*
+Training a DCGAN to generate digits from MNIST dataset.
+
+# 📓 Notebook *RLGAN-p2-WGANGP.ipynb*
+Training a WGANGP to generate digits from MNIST dataset.
 
 # 📂 Folder "results_p1"
-Results of both solution types, including:
+Results of solutions for Lunar Lander and Falppy Bird, including:
 
-* 📈 Reward histories and test videos from the Lunar Lander.
-* 🤖 *lunar_lander_AG.txt* file: Model from the GA version with the best global chromosome.
-* 🤖 *lunar_lander_MLP.pt* file: Model from the MLP version with the weights and optimizer states.
+* 📈 Reward histories and test videos from all models.
+* 🤖 *.txt* files: Models from the GA versions with the best global chromosome and the best last chromosome.
+* 🤖 *lunar_lander_DQN.pt* file: Model from the MLP version with the weights and optimizer states.
+* 🤖 *.zip* files: Saves from the PPO models in both versions.
+
+⭐ **NOTE:** Each notebook shows how to load it´s model to test it directly without training. ⭐
 
 # 📂 Folder "results_p2"
-Folder where all the created subfiles for the GAN task are stored (ignored because too much and very heavy files). It mainly contains:
+Results for the 3 different GANs and their tasks:
 
-* Test images colorization plot from the GAN.
+* **GAN** files: Losses, specific and random predictions.
+* **DCGAN** files: Losses, GIF results, image results and a modal collapse example.
+* **WGANGP** files: Losses and results.  
+
+# 🎮 Previews
+
+Lunar Lander with GA: [Lunar Lander GA](results_p1/videos/LL-AG-3000-episode-7.mp4)
+
+Lunar Lander with DQN: [Lunar Lander DQN](results_p1/videos/LL-DQN-10000-episode-6.mp4)
+
+Lunar Lander with PPO: [Lunar Lander PPO](results_p1/videos/LL-PPO-episode-2.mp4)
+
+Flappy Bird with GA: [Flappy Bird GA](results_p1/videos/FB-AG-5000-episode-4.mp4) 
+
+Flappy Bird with PPO: [Flappy Bird PPO](results_p1/videos/FB-PPO-episode-4.mp4) 
+
+<p align="center"> <b>GAN</b> image predictions</p>
+
+![GAN1](results_p2/GAN_350_predictions.png)
+
+<p align="center"> <b>GAN</b> random image predictions</p>
+
+![GAN2](results_p2/GAN_350_predictions_random_5.png)
+
+<p align="center"> <b>DCGAN</b> results </p>
+
+<p align="center">
+    <img src="results_p2/DCGAN_500_results.gif" alt="DCGAN1">
+</p>
+
+<p align="center"> <b>DCGAN</b> modal collapse </p>
+
+<p align="center">
+    <img src="results_p2/DCGAN_500_collapse_example.gif" alt="DCGAN2">
+</p>
+
+<p align="center"> <b>WGANGP</b> results </p>
+
+<p align="center">
+    <img src="results_p2/WGANGP_10_results.gif" alt="WGANGP1">
+</p>
 
 # ⚖️ License
 From Lunar Lander to colonizing Mars (SpaceX hire us).
