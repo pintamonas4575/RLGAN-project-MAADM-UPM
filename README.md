@@ -65,17 +65,34 @@ Results for the 3 different GANs and their tasks:
 * **DCGAN** files: Losses, GIF results, image results and a modal collapse example.
 * **WGANGP** files: Losses and results.  
 
-# 🎮 Previews
+# 🎮 Previews 
+<div style="display: flex; justify-content: center; gap: 100px;">
+    <div style="text-align: center;">
+        <p><b>Lunar Lander</b> with <b>GA</b></p>
+        <img src="assets/LL-AG-3000-episode-7.gif" alt="Lunar Lander GA">
+    </div>
+    <div style="text-align: center;">
+        <p><b>Lunar Lander</b> with <b>DQN</b></p>
+        <img src="assets/LL-DQN-10000-episode-6.gif" alt="Lunar Lander DQN">
+    </div>
+    <div style="text-align: center;">
+        <p><b>Lunar Lander</b> with <b>PPO</b></p>
+        <img src="assets/LL-PPO-episode-2.gif" alt="Lunar Lander PPO">
+    </div>
+</div>
 
-Lunar Lander with GA: [Lunar Lander GA](results_p1/videos/LL-AG-3000-episode-7.mp4)
+<div style="display: flex; justify-content: center; gap: 100px;">
+    <div style="text-align: center;">
+        <p><b>Flappy Bird</b> with <b>GA</b></p>
+        <img src="assets/FB-AG-5000-episode-4.gif" alt="Flappy Bird GA">
+    </div>
+    <div style="text-align: center;">
+        <p><b>Flappy Bird</b> with <b>PPO</b></p>
+        <img src="assets/FB-PPO-episode-4.gif" alt="Flappy Bird PPO">
+    </div>
+</div>
 
-Lunar Lander with DQN: [Lunar Lander DQN](results_p1/videos/LL-DQN-10000-episode-6.mp4)
-
-Lunar Lander with PPO: [Lunar Lander PPO](results_p1/videos/LL-PPO-episode-2.mp4)
-
-Flappy Bird with GA: [Flappy Bird GA](results_p1/videos/FB-AG-5000-episode-4.mp4) 
-
-Flappy Bird with PPO: [Flappy Bird PPO](results_p1/videos/FB-PPO-episode-4.mp4) 
+<!--------------------------------------------------------------------->
 
 <p align="center"> <b>GAN</b> image predictions</p>
 
