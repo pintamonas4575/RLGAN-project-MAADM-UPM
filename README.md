@@ -66,59 +66,37 @@ Results for the 3 different GANs and their tasks:
 * **WGANGP** files: Losses and results.  
 
 # 🎮 Previews 
-<div style="display: flex; justify-content: center; gap: 100px;">
-    <div style="text-align: center;">
-        <p><b>Lunar Lander</b> with <b>GA</b></p>
-        <img src="assets/LL-AG-3000-episode-7.gif" alt="Lunar Lander GA">
-    </div>
-    <div style="text-align: center;">
-        <p><b>Lunar Lander</b> with <b>DQN</b></p>
-        <img src="assets/LL-DQN-10000-episode-6.gif" alt="Lunar Lander DQN">
-    </div>
-    <div style="text-align: center;">
-        <p><b>Lunar Lander</b> with <b>PPO</b></p>
-        <img src="assets/LL-PPO-episode-2.gif" alt="Lunar Lander PPO">
-    </div>
-</div>
+<p align="center"><b>Lunar Lander with GA</b></p>
+<p align="center"><img src="assets/LL-AG-3000-episode-7.gif" alt="Lunar Lander GA"></p>
 
-<div style="display: flex; justify-content: center; gap: 100px;">
-    <div style="text-align: center;">
-        <p><b>Flappy Bird</b> with <b>GA</b></p>
-        <img src="assets/FB-AG-5000-episode-4.gif" alt="Flappy Bird GA">
-    </div>
-    <div style="text-align: center;">
-        <p><b>Flappy Bird</b> with <b>PPO</b></p>
-        <img src="assets/FB-PPO-episode-4.gif" alt="Flappy Bird PPO">
-    </div>
-</div>
+<p align="center"><b>Lunar Lander with DQN</b></p>
+<p align="center"><img src="assets/LL-DQN-10000-episode-6.gif" alt="Lunar Lander DQN"></p>
+
+<p align="center"><b>Lunar Lander with PPO</b></p>
+<p align="center"><img src="assets/LL-PPO-episode-2.gif" alt="Lunar Lander PPO"></p>
+
+<p align="center"><b>Flappy Bird with GA</b></p>
+<p align="center"><img src="assets/FB-AG-5000-episode-4.gif" alt="Flappy Bird GA"></p>
+
+<p align="center"><b>Flappy Bird with PPO</b></p>
+<p align="center"><img src="assets/FB-PPO-episode-4.gif" alt="Flappy Bird PPO"></p>
 
 <!--------------------------------------------------------------------->
 
 <p align="center"> <b>GAN</b> image predictions</p>
-
-![GAN1](results_p2/GAN_350_predictions.png)
+<p align="center"><img src="results_p2/GAN_350_predictions.png" alt="GAN1"></p>
 
 <p align="center"> <b>GAN</b> random image predictions</p>
-
-![GAN2](results_p2/GAN_350_predictions_random_5.png)
+<p align="center"><img src="results_p2/GAN_350_predictions_random_5.png" alt="GAN2"></p>
 
 <p align="center"> <b>DCGAN</b> results </p>
-
-<p align="center">
-    <img src="results_p2/DCGAN_500_results.gif" alt="DCGAN1">
-</p>
+<p align="center"><img src="results_p2/DCGAN_500_results.gif" alt="DCGAN1"></p>
 
 <p align="center"> <b>DCGAN</b> modal collapse </p>
-
-<p align="center">
-    <img src="results_p2/DCGAN_500_collapse_example.gif" alt="DCGAN2">
-</p>
+<p align="center"><img src="results_p2/DCGAN_500_collapse_example.gif" alt="DCGAN2"></p>
 
 <p align="center"> <b>WGANGP</b> results </p>
-
-<p align="center">
-    <img src="results_p2/WGANGP_10_results.gif" alt="WGANGP1">
-</p>
+<p align="center"><img src="results_p2/WGANGP_10_results.gif" alt="WGANGP1"></p>
 
 # ⚖️ License
 From Lunar Lander to colonizing Mars (SpaceX hire us).
