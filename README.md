@@ -63,7 +63,7 @@ Results for the 3 different GANs and their tasks:
 
 * **GAN** files: Losses, specific and random predictions.
 * **DCGAN** files: Losses, GIF results, image results and a modal collapse example.
-* **WGANGP** files: Losses and results.  
+* **WGANGP** files: Losses, GIF results and image results.  
 
 # 🎮 Previews 
 <p align="center"><b>Lunar Lander with GA</b></p>
@@ -96,7 +96,7 @@ Results for the 3 different GANs and their tasks:
 <p align="center"><img src="results_p2/DCGAN_500_collapse_example.gif" alt="DCGAN2"></p>
 
 <p align="center"> <b>WGANGP</b> results </p>
-<p align="center"><img src="results_p2/WGANGP_10_results.gif" alt="WGANGP1"></p>
+<p align="center"><img src="results_p2/WGANGP_500_results.gif" alt="WGANGP1"></p>
 
 # ⚖️ License
 From Lunar Lander to colonizing Mars (SpaceX hire us).
@@ -104,7 +104,6 @@ From Lunar Lander to colonizing Mars (SpaceX hire us).
 From GAN colorization to paint better than Picasso (We wish).
 
 # 👥 Authors
-
 * Alejandro Mendoza [@pintamonas4575](https://github.com/pintamonas4575)
 * Jaime Álvarez     [@JaimeAlvarez434](https://github.com/JaimeAlvarez434)
 * Álvaro Fraile     [@alvarofraile](https://github.com/alvarofraile)
