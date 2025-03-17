@@ -90,7 +90,7 @@ Results for the 3 different GANs and their tasks:
 <p align="center"><img src="results_p2/GAN_350_predictions_random_5.png" alt="GAN2"></p>
 
 <p align="center"> <b>DCGAN</b> results </p>
-<p align="center"><img src="results_p2/DCGAN_500_results.gif" alt="DCGAN1"></p>
+<p align="center"><img src="results_p2/DCGAN_750_results.gif" alt="DCGAN1"></p>
 
 <p align="center"> <b>DCGAN</b> modal collapse </p>
 <p align="center"><img src="results_p2/DCGAN_500_collapse_example.gif" alt="DCGAN2"></p>
